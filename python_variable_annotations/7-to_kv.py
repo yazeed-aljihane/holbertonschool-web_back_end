@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Define a typed utility function for concatenating two strings."""
-from typing import Tuple
+"""Define a typed utility function for building typed key-value tuples."""
+from typing import Tuple, Union
 
 
-def to_kv(k: str, v: int) -> Tuple[str, int]:
+def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
     """Return a tuple of the key and value."""
-    return (k, v)
+    return (k, float(v))
