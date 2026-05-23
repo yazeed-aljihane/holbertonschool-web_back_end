@@ -12,13 +12,16 @@ function countStudents(path) {
 
       if (lines.length <= 1) {
         console.log('Number of students: 0');
-        resolve();
+        resolve('Number of students: 0');
         return;
       }
 
       lines.shift(); // Remove the header
 
-      console.log(`Number of students: ${lines.length}`);
+      const output = [];
+      const msg1 = `Number of students: ${lines.length}`;
+      console.log(msg1);
+      output.push(msg1);
 
       const fields = {};
       for (const line of lines) {
@@ -33,10 +36,12 @@ function countStudents(path) {
       }
 
       for (const [field, students] of Object.entries(fields)) {
-        console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+        const msg = `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`;
+        console.log(msg);
+        output.push(msg);
       }
 
-      resolve();
+      resolve(output.join('\n'));
     });
   });
 }
